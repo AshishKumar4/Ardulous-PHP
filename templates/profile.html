@@ -1,0 +1,72 @@
+<div id="main">
+    <link href="css/profilecard.css" rel="stylesheet">
+    <div id="profile-sidebar">
+        
+
+        <div class="profile">
+            <div class="profile__header">
+                    <img class="profile__background" src="<?php print($_SESSION['personal']['profile_cover']);?>" />
+                    <img class="profile__picture" src="<?php print($_SESSION['personal']['profile_pic']);?>" />
+            </div>
+            <div class="profile__content">
+                <div class="profile__bio">
+                    <h3 class="profile__name"><?php print($_SESSION['personal']['name']);?></h3>
+                    <p class="profile__info"><?php print($_SESSION['personal']['info']);?></p>
+                </div>
+                <div class="profile__links">
+                    <a class="profile__link" href="#">
+                        <i class="profile__link__icon fa fa-map-marker"></i>
+                        <span class="profile__link__text"><?php print($_SESSION['personal']['city']);?></span>
+                    </a>
+                    <a class="profile__link" href="#">
+                        <i class="profile__link__icon fa fa-envelope"></i>
+                        <span class="profile__link__text"><?php print($_SESSION['userinfo']['email]']);?></span>
+                    </a>
+                </div>
+                <div class="profile_stats">
+                    <div class="profile_stats__stats profile_stats__stats--followers">
+                        <span class="profile_stats__stats__count"><?php print($_SESSION['stats']['posts']);?></span>
+                        <span class="profile_stats__stats__label">Posts</span>
+                    </div>
+                    <div class="profile_stats__stats profile_stats__stats--followers">
+                        <span class="profile_stats__stats__count"><?php print($_SESSION['stats']['followers']);?></span>
+                        <span class="profile_stats__stats__label">Followers</span>
+                    </div>
+                    <div class="profile_stats__stats profile_stats__stats--followers">
+                        <span class="profile_stats__stats__count"><?php print($_SESSION['stats']['following']);?></span>
+                        <span class="profile_stats__stats__label">Following</span>
+                    </div>
+
+                    <div class="profile_stats__follow">
+                        <button class="profile_stats__follow__button" onclick="makeFollowToUser('{{ profile_id | safe }}')">Follow</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!--<div id="right-sidebar">
+
+    </div>-->
+
+    <script type="text/javascript" src="js/posts.js"></script>
+    <link href="css/posts.css" rel="stylesheet">
+    <link href="css/profile.css" rel="stylesheet">
+    <div id="profile-wall" onload="loadPostsAll('{{ profile_id | safe }}')">
+
+        <div id="post-area">
+            
+        </div>
+
+    </div>
+</div>
+<script>
+    loadPostsAll('{{ profile_id | safe }}', 5, 0);
+
+    $(window).scroll(function () {
+        if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+            loadPostsAll('{{ profile_id | safe }}', 5, 0);
+        }
+    });
+</script> 

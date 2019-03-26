@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Ardulous</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<link href="css/style.css" rel="stylesheet">
+	<script type="text/javascript" src="js/particles.min.js"></script>
+</head>
+
+<body>
+	<div id="particles-js"></div>
+	<div id="holder">
+		<p id="logo"><b>Ardulous</b></p>
+		<br>
+		<br>
+		<br>
+		<form method="POST" id="login">
+			<br>
+			<br>
+			<h2><b>Login as User</b></h2>
+			<br>
+			<br>
+			<span class="left">Login id: </span>
+			<br>
+			<input type="text" name="id">
+			<br>
+			<br>
+			<span class="left">Password: </span>
+			<br>
+			<input type="password" name="pw">
+			<br>
+			<br>
+			<button type="submit" name="login">Login</button>			<br>
+			<br>
+		</form>
+		<br>
+		<a href="./register_user.php">Not Registered yet? Register here</a>
+	</div>
+</body>
+<script type="text/javascript">
+	particlesJS.load("particles-js", "js/particlesjs-config.json");
+</script>
+
+</html>
+
+<?php 
+/*
+define('URL', 'http://127.0.0.1/Ardulous/');
+if ($_SERVER["REQUEST_METHOD"] == "POST") 
+{
+	header('Location: '.URL.'dashboard.php', TRUE, 302);
+}*/
+
+require 'globals.php';
+require 'Database.php';
+
+define('URL', 'http://127.0.0.1/Ardulous/');
+if ($_SERVER["REQUEST_METHOD"] == "POST") 
+{
+	//header('Location: '.URL.'dashboard.php', TRUE, 302);
+	$status = DB_validateUser($_POST['id'], $_POST['pw']);
+	if($status == 1)
+	{
+		header('Location: '.URL.'dashboard.php', TRUE, 302);
+	}
+	else 
+	{
+
+	}
+}
+
+?>
+

@@ -1,0 +1,52 @@
+Database style =>
+
+Using CouchDB,
+
+Users, Organization
+
+
+User Table Entry ==>
+{
+  "_id": "admin",
+  "password": "admin",
+  "type": "admin",
+  "email": "admin@ardulous.io",
+  "feed": [],
+  "originals": [],
+  "connections": {
+    "friends": [
+      "ashish"
+    ],
+    "followers": [
+      "ashish"
+    ],
+    "following": [
+      "ashish",
+      "divyanshi",
+      "anushka"
+    ]
+  },
+  "personal": {
+    "profile_pic": "/static/img/Users/ashish/profile_pic.jpg",
+    "profile_cover": "/static/img/Users/ashish/profile_cover.jpg",
+    "name": "Administrator",
+    "info": "I am the god of this realm! Thou shall bent ye knee!",
+    "dob": "04/01/1999",
+    "city": "Atlantis",
+    "address": "",
+    "occupation": "",
+    "interest": ""
+  },
+  "messaging": {
+
+  }
+}
+
+Messaging table Entry ==>
+{
+  
+}
+
+
+Whenever a person 'messages' another person, a 'Message' Table entry would be made for their connection and all the messages would be stored there.
+the id of the table entry would be with each of the person.

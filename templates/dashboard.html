@@ -1,0 +1,120 @@
+<div id="main" onscroll="postScrollRefresh(this)">
+    <div id="left-sidebar">
+        <link href="css/profilecard.css" rel="stylesheet">
+        <div id="profile-card">
+
+
+            <div class="profile">
+                <div class="profile__header">
+                    <img class="profile__background" src="<?php print($_SESSION['personal']['profile_cover']);?>" />
+                    <img class="profile__picture" src="<?php print($_SESSION['personal']['profile_pic']);?>" />
+                </div>
+                <div class="profile__content">
+                    <div class="profile__bio">
+                        <h3 class="profile__name"><?php print($_SESSION['personal']['name']);?></h3>
+                        <p class="profile__info"><?php print($_SESSION['personal']['info']);?></p>
+                    </div>
+                    <div class="profile__links">
+                        <a class="profile__link" href="#">
+                            <i class="profile__link__icon fa fa-map-marker"></i>
+                            <span class="profile__link__text"><?php print($_SESSION['personal']['city']);?></span>
+                        </a>
+                        <a class="profile__link" href="#">
+                            <i class="profile__link__icon fa fa-envelope"></i>
+                            <span class="profile__link__text"><?php print($_SESSION['userinfo']['email]']);?></span>
+                        </a>
+                    </div>
+                    <div class="profile_stats">
+                        <div class="profile_stats__stats profile_stats__stats--followers">
+                            <span class="profile_stats__stats__count"><?php print($_SESSION['stats']['posts']);?></span>
+                            <span class="profile_stats__stats__label">Posts</span>
+                        </div>
+                        <div class="profile_stats__stats profile_stats__stats--followers">
+                            <span class="profile_stats__stats__count"><?php print($_SESSION['stats']['followers']);?></span>
+                            <span class="profile_stats__stats__label">Followers</span>
+                        </div>
+                        <div class="profile_stats__stats profile_stats__stats--followers">
+                            <span class="profile_stats__stats__count"><?php print($_SESSION['stats']['following']);?></span>
+                            <span class="profile_stats__stats__label">Following</span>
+                        </div>
+
+                        <div class="profile_stats__follow">
+                            <button class="profile_stats__follow__button" onclick="window.location = './profile.php'">My Profile</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div id="right-sidebar">
+        <link href="css/msgSidePanel.css" rel="stylesheet">
+        <script type="text/javascript" src="js/messaging.js"></script>
+        <div id="messaging-wrapper">
+            <div id="messaging-header">
+                My Friends
+            </div>
+            <div id="messaging-recent" onloadstart="refreshMsgRecentList();">
+                <div class="msgContact-recent-header" onclick="toggleMsgRecents()">
+                    Recent
+                </div>
+                <div class="msgContact-recent-board">
+                </div>
+            </div>
+            <div id="messaging-general" onloadstart="refreshMsgGeneralList();">
+                <div class="msgContact-general-header" onclick="toggleMsgGenerals()">
+                    Contacts
+                </div>
+                <div class="msgContact-board">
+                    <div class="msgContact-box">
+                        <div class="msgContact-pic">
+
+                        </div>
+                        <div class="msgContact-name">
+
+                        </div>
+                        <div class="msgContact-lastMsg">
+
+                        </div>
+                        <div class="msgContact-count">
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <link href="css/posts.css" rel="stylesheet">
+    <div id="wall" onloadstart="loadPostFeed();">
+        <div id="post-create">
+            <div aria-labelledby="post-create-text-label" name="post" id="post-create-text" class="post-box" spellcheck="true" aria-multiline="true"
+                data-placeholder-default="What’s happening?" data-placeholder-poll-composer-on="Ask a question..." dir="ltr"
+                aria-autocomplete="list" aria-expanded="false" aria-owns="typeahead-dropdown-4" role="" contenteditable="true">
+                <br>
+            </div>
+            <button id="post-upload-button" onclick="uploadContent()">
+                <div class="glyphicon glyphicon-picture"></div>Photo/Video
+                <input type="file" id="uploadcontent" hidden/>
+            </button>
+            <button id="post-create-button" onclick="newPost()">Post!</button>
+        </div>
+        <div id="status">
+
+        </div>
+        <div id="post-area">
+
+        </div>
+    </div>
+</div>
+<script>
+    loadPostFeed(5, 0);
+    refreshMsgRecentList(5, 0);
+    refreshMsgGeneralList(5, 0);
+    $(window).scroll(function () {
+        if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+            loadPostFeed(5, 0);
+        }
+    });
+</script> 

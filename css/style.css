@@ -1,0 +1,216 @@
+/* =============================================================================
+   HTML5 CSS Reset Minified - Eric Meyer
+   ========================================================================== */
+
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+body{line-height:1}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+nav ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:none}
+a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent;text-decoration:none}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+del{text-decoration:line-through}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
+table{border-collapse:collapse;border-spacing:0}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+input,select{vertical-align:middle}
+li{list-style:none}
+
+
+/* =============================================================================
+   My CSS
+   ========================================================================== */
+
+/* ---- base ---- */
+
+html,body{ 
+	width:100%;
+	min-height:100%;
+	background:#111;
+}
+
+html{
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  background-image: url('../img/wall1.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+/*
+canvas{
+  display:block;
+  vertical-align:bottom;
+}
+*/
+body {
+  background-image: inherit;
+  background-attachment: inherit;
+  background-size: inherit;
+  background-repeat: inherit;
+  font-family: ubuntu mono,monospace,maiandra gd;
+  font-size:1.75vmin;
+}
+
+#logo {
+  color: #00c000;
+  text-align: center;
+  font-family: ubuntu mono,monospace,maiandra gd;
+  font-size: 500%;
+  padding-top: 0px;
+  position: relative;
+  font-style:bold;
+}
+
+form {
+  text-align: center;
+}
+
+input {
+  color:#eaeaea;
+  background-color:#39414780;
+  border-radius: 7px;
+  border-style:0;
+  padding:5px;
+  margin:5px;
+  align-self: right;
+  border:0;
+  width:15vw;
+}
+
+.left {
+  float:left;
+  margin: auto 4.95vw;
+}
+
+#holder {
+  margin:auto;
+  position: absolute;
+  margin: 25vh 50vw 40vh 37vw;
+}
+
+#login{
+  border: solid 1px black;
+  background-color:#00958a4d;
+  border-radius:5px;
+  width:25vw;
+}
+
+/* ---- particles.js container ---- */
+
+#particles-js{
+  position: fixed;
+  width: 100%;
+  min-height: 100%;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  z-index:0;
+}
+
+/* ---- navbar container ---- */
+
+#navbar {
+  width:100vw;
+  top: 0;
+  height:50px;
+  background-color: black;
+  text-align:right;
+  position:fixed;
+  border-style:outset;
+  border-color:grey;
+  border-width:2.5px 0 2.5px 0;
+  vertical-align:center;
+  z-index:2;
+}
+
+#navbar #logo{
+  font-size: 200%;
+  float: left;
+  margin: 0.4vw 1vh 1vw 17.4vh;
+  /*color: #007a00;*/
+}
+
+#navbar .navitems {
+  /*line-height:4.5;
+  /*margin:20px;*/
+  width: 7vw;
+  height:50px;
+  display:inline-block;
+  line-height:3.1;
+  text-align:center;
+  cursor:default;
+  color:white;
+  float:left;
+}
+
+#navbar .navitems:hover {
+ /* line-height:4.5;
+  margin:20px;*/
+  cursor:default;
+  background-color:green;
+  height:46px;
+}
+
+#navbar #searchbar {
+  width: 100%;
+  height:100%;
+}
+
+#navbar #searchbarwrapper {
+  display:inline-block;
+  width:27vw;;
+  vertical-align:middle;
+  line-height:1.35;
+  margin: 0.28vh 1.5vw 0 7vw;
+  float:left;
+}
+
+#navbar input {
+  color:#b7b7b7;
+  background-color:#a5a5a580;
+}
+
+/* ---- main container ---- */
+
+#main {
+  width:100vw;
+  min-height:100%;
+  margin:50px 0 0 0;
+  position:absolute;
+}
+
+#main #left-sidebar {
+  border-color:black;
+  display:inline-block;
+  width:24vw;
+  min-height:100vh;
+  float:left;
+  background-color:#31a8ff33;
+  position:sticky;
+  top:0;
+}
+
+#main #right-sidebar {
+  border-color:black;
+  display:inline-block;
+  width:18vw;
+  min-height:100vh;
+  float:right;
+  color:#007a00;
+}
+
+#main #wall {
+  border-color:black;
+  display:inline-block;
+  width:57vw;
+  min-height:100vh;
+  background-color:#e9e9e999;
+}
+
+/* ---- Footer container ---- */
+
+#footer {
+  position:fixed;
+  bottom:0;
+}

@@ -14,7 +14,19 @@ if (isset($_SESSION["login"]))
 	if ($_SERVER["REQUEST_METHOD"] == "POST") 
 	{
         $data = json_decode(file_get_contents('php://input'));
-        print_r($data->text);
+		$count = $data->count;
+		$ss = $_SESSION['login'];
+		$pos = $data->feedpos;
+		$feed = DB_popFeeds($ss, $pos, $count);
+		for($i = 0; $i < sizeof($feed); $i++)
+		{
+			$uid = $feed[$i]['author-id'];
+			$pp = DB_getUserInfo($uid);
+			$feed[$i]['author-pic'] = $pp['personal']['profile_pic'];
+			$feed[$i]['author-name'] = $pp['personal']['name'];
+		}
+		print_r(json_encode($feed));
+//*/
 	} 
 } 
 else 
